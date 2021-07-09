@@ -1,8 +1,22 @@
 [tool.poetry]
-name = "klickbrick"
+name = "klickbrick-jms"
 version = "0.1.0"
-description = ""
+description = "Project for Manning's \"Build an Extensible CLI with Python\" LiveProject."
 authors = ["Jeronimo F. Martinez Sanchez <jms@rz0r.net>"]
+license = "MIT"
+readme = "README.rst"
+homepage = "https://github.com/jms/klickbrick"
+repository = "https://github.com/jms/klickbrick.git"
+classifiers = [
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+packages = [
+    { include = "klickbrick" },
+]
+
+[tool.poetry.scripts]
+klickbrick = "klickbrick.klickbrick:main"
 
 [tool.poetry.dependencies]
 python = "^3.9"
