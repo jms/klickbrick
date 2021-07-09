@@ -1,0 +1,22 @@
+language: python
+python:
+  - "3.9"
+before_install:
+  - pip install --upgrade pip
+  - pip install poetry
+  - poetry config settings.virtualenvs.in-project true
+install:
+  - poetry install
+script:
+  - poetry run pytest
+before_deploy:
+  - poetry config repositories.testpypi https://test.pypi.org/legacy/
+  - poetry config http-basic.testpypi $TEST_PYPI_USER $TEST_PYPI_PASS
+  - poetry build
+deploy:
+  provider: script
+  script: poetry publish -r testpypi
+  on:
+    all_branches: true
+    condition: $TRAVIS_BUILD_STAGE_NAME = Deploy
+    tags: true
