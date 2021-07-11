@@ -1,5 +1,6 @@
 language: python
 python:
+  - "3.8"
   - "3.9"
 before_install:
   - pip install --upgrade pip
@@ -11,7 +12,7 @@ script:
   - poetry run pytest
 before_deploy:
   - poetry config repositories.testpypi https://test.pypi.org/legacy/
-  - poetry config http-basic.testpypi $TEST_PYPI_USER $TEST_PYPI_PASS
+  - poetry config http-basic.testpypi $TEST_PYPI_USER $TEST_PYPI_PASSWORD
   - poetry build
 deploy:
   provider: script
