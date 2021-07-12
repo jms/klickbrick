@@ -18,6 +18,5 @@ def test_cli_default(args, response, capsys):
 
 
 def test_cli_no_option():
-    args = ""
     with pytest.raises(SystemExit):
-        Klickbrick(args)
+        Klickbrick([])
