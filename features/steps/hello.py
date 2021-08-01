@@ -15,7 +15,7 @@ def step_impl(context):
     context.response = subprocess.run(args, capture_output=True, text=True).stdout
 
 
-@then("the CLI prints 'hello world'")
+@then("the CLI prints 'Hello World'")
 def step_impl(context):
     """
     :type context: behave.runner.Context
