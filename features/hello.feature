@@ -4,4 +4,4 @@ Feature: hello
 
   Scenario: Hello Command
     When the user run klickbrick 'hello'
-    Then the CLI prints 'hello world'
+    Then the CLI prints 'Hello World'

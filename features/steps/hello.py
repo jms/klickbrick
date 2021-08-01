@@ -1,4 +1,7 @@
+import subprocess
+
 from behave import *
+
 
 use_step_matcher("re")
 
@@ -8,8 +11,8 @@ def step_impl(context):
     """
     :type context: behave.runner.Context
     """
-    # raise NotImplementedError(u'STEP: When the user run klickbrick \'hello\'')
-    pass
+    args = "poetry run klickbrick hello".split()
+    context.response = subprocess.run(args, capture_output=True, text=True).stdout
 
 
 @then("the CLI prints 'hello world'")
@@ -17,5 +20,5 @@ def step_impl(context):
     """
     :type context: behave.runner.Context
     """
-    # raise NotImplementedError(u'STEP: Then the CLI prints \'hello world\'')
-    pass
+    assert "Hello World\n" == context.response
+
