@@ -1,0 +1,16 @@
+[init]
+    defaultBranch = main
+
+[user]
+    name = ${first_name} ${last_name}
+    email = ${email}
+
+[commit]
+    template = ~/.gitmessage.txt
+
+[color]
+    ui = auto
+    branch = auto
+    interactive = auto
+    diff = auto
+    status = auto
